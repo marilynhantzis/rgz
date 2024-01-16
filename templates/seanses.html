@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block namez %}Список сеансов{% endblock %}
+
+{% block main %}
+<h1 style="text-align: center;">Текущие сеансы</h1>
+<div class="seanses">
+        {% for seans in lists %}
+            <div><b><a href="/seanses/{{ seans.id }}" id="titles">{{ seans.title }}</a></b></div>
+                   <div>Время: {{ seans.time }}</div>
+                   <div style="margin-bottom: 30px;">Дата:{{ seans.data }}</div>
+        {% endfor %}
+</div>
+{% endblock %}

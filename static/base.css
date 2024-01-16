@@ -1,0 +1,171 @@
+body {
+    margin: 0;
+    background-color: white;
+    margin-top: 75px;
+    font-family: Georgia, 'Times New Roman', Times, serif
+}
+
+header {
+    background-color: lightcoral;
+    z-index: 3;
+    position: fixed;
+    top: 0;
+    color: white;
+    padding: 20px;
+    font-size: 16pt;
+    left: 0;
+    right: 0;
+    text-decoration: none;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border-radius: 5px;
+}
+
+footer { 
+    z-index: 1;
+    background-color: lightcoral;
+    color: white;
+    padding: 20px;
+    font-size: 16pt;
+    text-align: right;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border-radius: 5px;
+
+}
+
+
+.show_notes {
+    z-index: 4;
+    position: fixed;
+    top: 20px;
+    left: 380px;
+    text-decoration: none;
+}
+
+
+.create_notes {
+    z-index: 4;
+    position: fixed;
+    top: 20px;
+    left: 700px;
+    text-decoration: none;
+
+}
+
+.alter_reservation {
+    z-index: 4;
+    position: fixed;
+    top: 20px;
+    left: 1200px;
+    text-decoration: none;
+
+}
+
+
+.login {
+    z-index: 4;
+    position: fixed;
+    top: 20px;
+    left: 80%;
+    border: 5px solid lightsalmon;
+    border-radius: 10px;
+    background-color: lightsalmon;
+    padding: 3px;
+    text-decoration: none;
+    color:black
+
+
+}
+
+
+.regist {
+    z-index: 4;
+    position: fixed;
+    top: 20px;
+    left: 85%;
+    border: 2px solid brown;
+    background-color: brown;
+    border-radius: 10px;
+    padding: 5px;
+    text-decoration: none;
+    color:white
+
+}
+
+
+.persona {
+    z-index: 4;
+    position: fixed;
+    top: 20px;
+    left: 94%;
+    text-decoration: none;
+    color:white
+
+}
+
+
+.user_name {
+    z-index: 4;
+    position: fixed;
+    top: 20px;
+    left: 95%;
+    text-decoration: none;
+
+}
+
+.errors {
+    color: red;
+    font-weight: bold;
+}
+
+
+.rega {
+    margin-top: 150px;
+    text-align: center;
+    line-height: 22px;
+}
+
+.loga {
+    margin-top: 150px;
+    text-align: center;
+    line-height: 22px;
+}
+
+#titles {
+    color:black
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+
+.new_seans {
+    margin-top: 150px;
+    text-align: center;
+    line-height: 22px;
+}
+
+
+.main_page {
+    margin-top: 120px;
+    text-align: center;
+    line-height: 22px;
+}
+
+
+.seanses {
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+
+.main_link:hover {
+    text-decoration: underline;
+    color: white;
+    transition: 30ms;
+}

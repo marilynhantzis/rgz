@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block namez %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='base.css')}}">
+</head>
+<body>
+    <header>
+        <a href="/"><b>Система бронирования</b></a>
+        <div class="show_notes"><a class="main_link" href="/seanses">Просмотреть сеансы</a></div>
+        <div class="create_notes"><a class="main_link" href="/seanses/add">Управление сеансами (для администратора)</a></div>
+        <div class="alter_reservation"><a class="main_link"  href="/change_reserv">Изменить бронь (для администратора)</a></div>
+        <div class="login"><a class="main_link"  href="/login">Логин</a></div>
+        <div class="regist"><a class="main_link"  href="/register">Регистрация</a></div>
+        <div class="persona"><a class="main_link"  href="/profile">Профиль</a></div>
+    </header>
+
+    <main>
+        {% block main %}{% endblock %}
+    </main>
+    
+    <footer>
+        &copy; Тарбанаков Артем, ФБИ-14, 3 курс, 2023
+    </footer>
+</body>
+</html>

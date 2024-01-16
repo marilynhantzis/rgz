@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block namez %}Профиль{% endblock %}
+
+{% block main %}
+<div style="text-align: center;">
+<h1>Удалить бронирование</h1>
+<h2>Выберите бронь</h2>
+</div>
+<div style="text-align: center;">
+<form method="post">
+    <ul>
+        {% for r in reserv %}
+            <li>
+                <label for="r {{r}}">Номер: {{ r.id }}, Сеанс: {{ r.seans }}, Место: {{ r.seat }}</label>
+                <input type="checkbox" id="r {{r}}" name="selected_res" value="{{ r.id }}">
+            </li>
+        {% endfor %}
+    </ul>
+    <input type="submit" value="Удалить выбранные бронирования">
+</form>
+</div>
+{% endblock %}

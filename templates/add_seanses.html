@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block namez %}Добавление нового сеанса{% endblock %}
+
+{% block main %}
+<div class="new_seans">
+    <h1>Новый сеанс (администратор)</h1>
+
+    <form method="POST">
+        <div>
+            <h3>Название фильма</h3>
+            <input name="title" type="text" placeholder="Название фильма">
+        </div>
+        <div>
+            <h3>Время сеанса</h3>
+            <input name="film_time" type="text" placeholder="Формат: hh:mm">
+        </div>
+        <div>
+            <h3>Дата сеанса</h3>
+            <input name="film_date" type="text" placeholder="Формат: yyyy-mm-dd">
+        </div>
+
+    </textarea>
+        <input type="submit" value="Создать сеанс!">
+    </form>
+
+    <a style="color:black; margin-top: 150px; font-weight: bolder;" href="/change_seans">Удалить сеансы</a>
+</div>
+{% endblock %}

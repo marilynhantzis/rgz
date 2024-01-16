@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block namez %}Профиль{% endblock %}
+
+{% block main %}
+<div style="text-align: center;">
+<h1>Удалить сеанс</h1>
+<h2>Выберите сеанс</h2>
+</div>
+<div style="text-align: center;">
+<form method="post">
+    <ul>
+        {% for s in sns %}
+            <li>
+                <label for="s {{s}}">{{ s.title }}</label>
+                <input type="checkbox" id="s {{s}}" name="selected_sns" value="{{ s.id }}">
+            </li>
+        {% endfor %}
+    </ul>
+    <input type="submit" value="Удалить выбранные сеансы">
+</form>
+</div>
+{% endblock %}

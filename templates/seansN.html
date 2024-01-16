@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block namez %}Бронирование сеанса{% endblock %}
+
+{% block main %}
+    <h1>{{ my_seans.title }}</h1>
+    <div><b>Время сеанса:</b> {{ my_seans.time }}</div>
+    <div><b>Дата сеанса:</b> {{ my_seans.data }}</div>
+    <h2>Выберите места и создайте бронь</h2>
+    <form method="post">
+        <ul>
+            {% for seat in seats_red %}
+                <li>
+                    <label for="seat{{ seat }}">{{ seat }}</label>
+                    <input type="checkbox" id="seat{{ seat }}" name="selected_seats" value="{{ seat }}">
+                </li>
+            {% endfor %}
+        </ul>
+        <input type="submit" value="Забронировать выбранные места">
+        <div class="errors">{{ errors[0] }}</div>
+    </form>
+{% endblock %}
