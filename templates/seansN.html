@@ -3,20 +3,31 @@
 {% block namez %}Бронирование сеанса{% endblock %}
 
 {% block main %}
-    <h1>{{ my_seans.title }}</h1>
-    <div><b>Время сеанса:</b> {{ my_seans.time }}</div>
-    <div><b>Дата сеанса:</b> {{ my_seans.data }}</div>
-    <h2>Выберите места и создайте бронь</h2>
-    <form method="post">
-        <ul>
-            {% for seat in seats_red %}
-                <li>
-                    <label for="seat{{ seat }}">{{ seat }}</label>
-                    <input type="checkbox" id="seat{{ seat }}" name="selected_seats" value="{{ seat }}">
-                </li>
-            {% endfor %}
-        </ul>
-        <input type="submit" value="Забронировать выбранные места">
-        <div class="errors">{{ errors[0] }}</div>
-    </form>
+    {% if my_seans %}
+        {% if current_date < my_seans.data %}
+            <h1>{{ my_seans.title }}</h1>
+            <div><b>Время сеанса:</b> {{ my_seans.time }}</div>
+            <div><b>Дата сеанса:</b> {{ my_seans.data }}</div>
+            <h2>Выберите места и создайте бронь</h2>
+            <form method="post">
+                <ul>
+                    {% for seat in seats_red %}
+                        <li>
+                            <label for="seat{{ seat }}">{{ seat }}</label>
+                            <input type="checkbox" id="seat{{ seat }}" name="selected_seats" value="{{ seat }}">
+                        </li>
+                    {% endfor %}
+                </ul>
+                <input type="submit" value="Забронировать выбранные места">
+                <div class="errors">{{ errors[0] }}</div>
+            </form>
+        {% else %}
+        <div style="text-align: center;">  
+            <h1>Бронирование на данный сеанс невозможно</h1>
+            <h2>Я не знаю, как вы попали сюда, но с момента показа сеанса прошло: {{ current_date - my_seans.data }}</h2>
+        </div>
+        {% endif %}
+    {% else %}
+        <h1 style="text-align: center;">Извините, сеанса не существует</h1>
+    {% endif %}
 {% endblock %}

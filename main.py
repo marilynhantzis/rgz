@@ -3,6 +3,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from flask_login import login_user, login_required, current_user, logout_user, current_user
 from Db import db
 from Db.models import users, reservation, seans
+from datetime import datetime
 
 site = Blueprint('site', __name__)
 
@@ -118,7 +119,9 @@ def add_seanses():
 def show_seanses():
     if current_user.get_id():
         my_seanses = seans.query.order_by(seans.data).all()
-        return render_template('seanses.html', lists=my_seanses)
+        current_date = datetime.now().date()
+        print(current_date)
+        return render_template('seanses.html', lists=my_seanses, current_date = current_date)
     return redirect('/login')
 
 
@@ -126,6 +129,7 @@ def show_seanses():
 def seeSeans(seans_id):
     if current_user.get_id():
         errors = []
+        current_date = datetime.now().date()
         seats = [1,2,3,4,5,6,7,8,9,10,
                 11,12,13,14,15,16,17,18,19,20,
                 21,22,23,24,25,26,27,28,29,30]
@@ -139,11 +143,11 @@ def seeSeans(seans_id):
             if i not in chosen_seats:
                 seats_red.append(i)
         if request.method == 'GET':
-            return render_template('seansN.html', my_seans = my_seans, seats_red = seats_red, errors=errors)
+            return render_template('seansN.html', my_seans = my_seans, seats_red = seats_red, errors=errors,current_date=current_date)
         selected_seats = request.form.getlist('selected_seats')
         if len(selected_seats) > 5:
             errors.append('Вы не можете выбрать более 5 мест')
-            return render_template ('seansN.html', my_seans = my_seans, seats_red = seats_red, errors = errors)
+            return render_template ('seansN.html', my_seans = my_seans, seats_red = seats_red, errors = errors,current_date=current_date)
         for s in selected_seats:
             new_reservation = reservation(seans=seans_id, user = int(current_user.get_id()), seat = s)
             db.session.add(new_reservation)

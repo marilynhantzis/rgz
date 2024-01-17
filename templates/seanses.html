@@ -6,9 +6,13 @@
 <h1 style="text-align: center;">Текущие сеансы</h1>
 <div class="seanses">
         {% for seans in lists %}
-            <div><b><a href="/seanses/{{ seans.id }}" id="titles">{{ seans.title }}</a></b></div>
-                   <div>Время: {{ seans.time }}</div>
-                   <div style="margin-bottom: 30px;">Дата:{{ seans.data }}</div>
+                {% if current_date < seans.data %}
+                        <div><b><a href="/seanses/{{ seans.id }}" id="titles">{{ seans.title }}</a></b></div>
+                {% else %}
+                        <div><b><a href="" id="titles" style="color:gray">{{ seans.title }}</a></b></div>
+                {% endif %}
+                <div>Время: {{ seans.time }}</div>
+                <div style="margin-bottom: 30px;">Дата:{{ seans.data }}</div>
         {% endfor %}
 </div>
 {% endblock %}
